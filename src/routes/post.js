@@ -10,6 +10,6 @@ postRouter.route('/post')
   .get(jwt.validateToken, postController.getPosts)
   .delete(jwt.validateToken, postController.deletePost)
 
-postRouter.get('/filterposts', postController.filterPosts)
+postRouter.get('/postfilter/:value', jwt.validateToken, postController.filterPosts)
 
 module.exports = postRouter

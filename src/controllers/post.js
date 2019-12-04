@@ -77,22 +77,32 @@ postController.deletePost = async (req, res) => {
 
 postController.filterPosts = async (req, res) => {
   try {
-    if (await Posts.findById(req.body.id)) {
-      await Posts.findOneAndRemove({ autor: req.user.id, _id: req.body.id })
+    let posts = await Posts.paginate({ titulo: { $regex: req.params.value }, autor: req.user.id })
+    if (posts.totalDocs < 1) {
+      posts = await Posts.paginate({ contenido: { $regex: req.params.value }, autor: req.user.id })
+      if (posts.totalDocs < 1) {
+        return res.status(200).json({
+          ok: true,
+          message: '',
+          posts: posts.docs
+        })
+      }
       return res.status(200).json({
         ok: true,
-        message: 'Post eliminado correctamente'
-      })
-    } else {
-      return res.status(200).json({
-        ok: true,
-        message: 'Este post no te pertenece'
+        message: 'Estos son tus posts',
+        posts: posts.docs
       })
     }
+    return res.status(200).json({
+      ok: true,
+      message: 'Estos son tus posts',
+      posts: posts.docs
+    })
   } catch (error) {
     return res.status(500).json({
       ok: false,
-      message: 'Ingresa un id correcto'
+      message: 'hubo algún error',
+      error: error
     })
   }
 }

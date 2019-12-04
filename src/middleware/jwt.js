@@ -12,7 +12,7 @@ module.exports = {
       if (error) {
         return res.status(401).json({
           error: false,
-          messge: 'Permiso denegado  no has iniciado sesión'
+          messge: 'Permiso denegado no has iniciado sesión'
         })
       }
       req.user = decoded.user

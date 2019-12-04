@@ -83,19 +83,19 @@ postController.filterPosts = async (req, res) => {
       if (posts.totalDocs < 1) {
         return res.status(200).json({
           ok: true,
-          message: '',
+          message: `No hay post asociados a tu busqueda ${req.params.value}`,
           posts: posts.docs
         })
       }
       return res.status(200).json({
         ok: true,
-        message: 'Estos son tus posts',
+        message: `Estos son post que arrojó la busqueda ${req.params.value}`,
         posts: posts.docs
       })
     }
     return res.status(200).json({
       ok: true,
-      message: 'Estos son tus posts',
+      message: `Estos son post que arrojó la busqueda ${req.params.value}`,
       posts: posts.docs
     })
   } catch (error) {

@@ -16,6 +16,7 @@
   "dependencies": {
     "aws-sdk": "^2.582.0",
     "bcrypt": "^3.0.7",
+    "chalk": "^3.0.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",

@@ -75,4 +75,26 @@ postController.deletePost = async (req, res) => {
   }
 }
 
+postController.filterPosts = async (req, res) => {
+  try {
+    if (await Posts.findById(req.body.id)) {
+      await Posts.findOneAndRemove({ autor: req.user.id, _id: req.body.id })
+      return res.status(200).json({
+        ok: true,
+        message: 'Post eliminado correctamente'
+      })
+    } else {
+      return res.status(200).json({
+        ok: true,
+        message: 'Este post no te pertenece'
+      })
+    }
+  } catch (error) {
+    return res.status(500).json({
+      ok: false,
+      message: 'Ingresa un id correcto'
+    })
+  }
+}
+
 module.exports = postController

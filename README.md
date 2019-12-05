@@ -34,3 +34,15 @@ npm start
 ## Usage
 
 Link API REST : ```https://juliusprueba.herokuapp.com```
+
+##SingUp##
+
+```
+curl -X POST https://juliusprueba.herokuapp.com/singup
+    -H "Content-Type: application/json" \
+    -d '{
+            "name": "Juanito Develop",
+            "email": "juanito@develop.com",
+            "password":"juanitodev"
+        }
+```

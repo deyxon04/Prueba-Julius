@@ -29,17 +29,29 @@ cd Prueba-Julius
 npm start
 
 ```
-## Como usar la API 
 
-Link API REST : ```https://juliusprueba.herokuapp.com```
+## Como usar la API
+
+Link API REST : `https://juliusprueba.herokuapp.com`
 
 ##Registrar Usuario##
 
 ```
-curl -X POST https://juliusprueba.herokuapp.com/singup
+curl -X POST https://juliusprueba.herokuapp.com/api/singup
     -H "Content-Type: application/json" \
     -d '{
             "name": "Juanito Develop",
+            "email": "juanito@develop.com",
+            "password":"juanitodev"
+        }
+```
+
+##Iniciar sesión##
+
+```
+curl -X POST https://juliusprueba.herokuapp.com/api/singin
+    -H "Content-Type: application/json" \
+    -d '{
             "email": "juanito@develop.com",
             "password":"juanitodev"
         }

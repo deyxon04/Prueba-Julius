@@ -79,7 +79,7 @@ postController.filterPosts = async (req, res) => {
     const page = req.query.page
     const limit = req.query.limit
     const idUser = req.user.id
-    let posts = await Posts.paginate({ titulo: { $regex: valueTosearch }, autor: idUser }, { page: page, limit: page })
+    let posts = await Posts.paginate({ titulo: { $regex: valueTosearch }, autor: idUser }, { page: page, limit: limit })
     if (posts.totalDocs < 1) {
       posts = await Posts.paginate({ contenido: { $regex: valueTosearch }, autor: idUser }, { page: page, limit: limit })
       if (posts.totalDocs < 1) {

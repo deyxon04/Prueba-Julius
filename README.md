@@ -142,10 +142,10 @@ curl -X DEL https://juliusprueba.herokuapp.com/api/post
 ## Filtrar post
 
 ```
-HTTP request DEL
-DEL /postfilter/?page=1&limit=10
+HTTP request POST
+POST /postfilter/?page=1&limit=10
 
-curl -X DEL https://juliusprueba.herokuapp.com/api/postfilter/?page=1&limit=10
+curl -X POST https://juliusprueba.herokuapp.com/api/postfilter/?page=1&limit=10
     -H "Content-Type: application/json" \
     -H "Authorization: token jwt " \
     -d '{

@@ -1,14 +1,14 @@
 'use strict'
 
 const jwt = require('jsonwebtoken')
-const keys = require('../../keys')
+const config = require('../config/config')
 
 module.exports = {
   createToken (payload) {
-    return jwt.sign({ user: payload }, keys.SECREET_JWT, { expiresIn: '1h' })
+    return jwt.sign({ user: payload }, config.SECREET_JWT, { expiresIn: '1h' })
   },
   validateToken (req, res, next) {
-    jwt.verify(req.headers.authorization, keys.SECREET_JWT, (error, decoded) => {
+    jwt.verify(req.headers.authorization, config.SECREET_JWT, (error, decoded) => {
       if (error) {
         return res.status(401).json({
           error: false,

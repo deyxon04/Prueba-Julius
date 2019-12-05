@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npm install && node index.js",
-    "dev": "nodemon index.js",
+    "start": "npm install && node server.js",
+    "dev": "nodemon server.js",
     "lint": "standard",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint-fix": "standard --fix"

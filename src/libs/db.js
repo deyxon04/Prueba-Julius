@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
-const keys = require('../../keys')
+const config = require('../config/config')
 
 module.exports = () => {
-  return mongoose.connect(keys.URI, { useCreateIndex: true, useNewUrlParser: true, useUnifiedTopology: true, retryWrites: false })
+  return mongoose.connect(config.URI, { useCreateIndex: true, useNewUrlParser: true, useUnifiedTopology: true, retryWrites: false })
 }

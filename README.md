@@ -37,6 +37,9 @@ Link API REST : `https://juliusprueba.herokuapp.com`
 ## Registrar usuarios
 
 ```
+HTTP request POST
+POST /singup
+
 curl -X POST https://juliusprueba.herokuapp.com/api/singup
     -H "Content-Type: application/json" \
     -d '{
@@ -56,6 +59,9 @@ curl -X POST https://juliusprueba.herokuapp.com/api/singup
 ## Autenticar usuario
 
 ```
+HTTP request POST
+POST /singin
+
 curl -X POST https://juliusprueba.herokuapp.com/api/singin
     -H "Content-Type: application/json" \
     -d '{
@@ -74,6 +80,9 @@ curl -X POST https://juliusprueba.herokuapp.com/api/singin
 ## Crear un post
 
 ```
+HTTP request POST
+POST /post
+
 curl -X POST https://juliusprueba.herokuapp.com/api/post
     -H "Content-Type: multipart/form-data" \
     -H "Authorization: token jwt " \
@@ -94,11 +103,14 @@ curl -X POST https://juliusprueba.herokuapp.com/api/post
 ## Listar los post asociados a un usuario
 
 ```
+HTTP request GET
+GET /post
+
 curl -X GET https://juliusprueba.herokuapp.com/api/post
     -H "Authorization: token jwt " \
 
     ## Ejemplo de respuesta ##
-    { 
+    {
         "ok": true,
         "message": "Estos son tus post",
         "post": "Array de posts"
@@ -110,30 +122,36 @@ curl -X GET https://juliusprueba.herokuapp.com/api/post
 ## Eliminar un post
 
 ```
+HTTP request DEL
+DEL /post
+
 curl -X DEL https://juliusprueba.herokuapp.com/api/post
     -H "Content-Type: application/json" \
     -H "Authorization: token jwt " \
     -d '{
             "id": "Identificador del post"
         }
-    
+
     ## Ejemplo de respuesta ##
     {
         "ok": true,
-        "message": "Post eliminado correctamente"   
+        "message": "Post eliminado correctamente"
     }
 ```
 
 ## Filtrar post
 
 ```
+HTTP request DEL
+DEL /postfilter/?page=1&limit=10
+
 curl -X DEL https://juliusprueba.herokuapp.com/api/postfilter/?page=1&limit=10
     -H "Content-Type: application/json" \
     -H "Authorization: token jwt " \
     -d '{
 	        "value":"Juanito"
         }
-    
+
     ## Ejemplo de respuesta ##
     {
         "ok": true,
@@ -142,8 +160,6 @@ curl -X DEL https://juliusprueba.herokuapp.com/api/postfilter/?page=1&limit=10
     }
 ```
 
-
-
 ## License
-MIT
 
+MIT

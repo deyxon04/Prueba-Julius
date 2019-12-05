@@ -48,7 +48,7 @@ curl -X POST https://juliusprueba.herokuapp.com/api/singup
     ## Ejemplo de respuesta ##
     {
       "ok": true,
-      "message": "Login correcto",
+      "message": "Usuario creado correctamente",
       jwt: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9....'
     }
 

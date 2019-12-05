@@ -6,8 +6,8 @@ const mongoosePaginate = require('mongoose-paginate-v2')
 const Posts = new Schema({
   image: { type: String, required: true },
   titulo: { type: String, required: true },
-  contenido: { type: String },
-  date_created: { type: String },
+  contenido: { type: String, required: true },
+  date_created: { type: String, required: true },
   autor: { type: String, required: true }
 })
 Posts.plugin(mongoosePaginate)

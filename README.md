@@ -123,3 +123,22 @@ curl -X DEL https://juliusprueba.herokuapp.com/api/post
         "message": "Post eliminado correctamente"   
     }
 ```
+
+## Filtrar post
+
+```
+curl -X DEL https://juliusprueba.herokuapp.com/api/postfilter/?page=1&limit=10
+    -H "Content-Type: application/json" \
+    -H "Authorization: token jwt " \
+    -d '{
+	        "value":"Juanito"
+        }
+    
+    ## Ejemplo de respuesta ##
+    {
+        "ok": true,
+        "message": "Estos son post que arrojó la busqueda 'Juanito'",
+        "post": []
+    }
+```
+

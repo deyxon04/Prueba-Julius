@@ -5,7 +5,7 @@ const morgan = require('morgan')
 const path = require('path')
 const jwt = require('./middleware/jwt')
 const app = express()
-
+const redirectController = require('./controllers/redirect')
 // Midledwares
 app.use(morgan('dev'))
 app.use(express.json())
@@ -18,6 +18,9 @@ const postRouter = require('./routes/post')
 app.use('/api', authRouter)
 app.use('/api', postRouter)
 app.use('/api', jwt.validateToken)
-app.use('**', (req, res) => res.redirect('/api'))
+
+
+//Ruta de redirección
+app.use('**', redirectController.redirect)
 
 module.exports = app

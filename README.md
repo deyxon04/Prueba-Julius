@@ -138,7 +138,7 @@ curl -X DEL https://juliusprueba.herokuapp.com/api/postfilter/?page=1&limit=10
     {
         "ok": true,
         "message": "Estos son post que arrojó la busqueda 'Juanito'",
-        "post": []
+        "post": "Array de posts"
     }
 ```
 

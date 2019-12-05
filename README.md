@@ -6,36 +6,34 @@ Servicio API RESTFUL con Node.js y express.js
 
 - NodeJS
 
-## Installation
+## Instalación
 
 ```
-Clone with SSH
+Clonar con SSH
 
-Use a password protected SSH key.
 git clone git@github.com:deyxon04/Prueba-Julius.git
 
-Clone with HTTPS
+Clonar con HTTPS
 
-Use Git or checkout with SVN using the web URL.
 git clone https://github.com/deyxon04/Prueba-Julius.git
 
-## Installation development mode ##
+## Instalación en modo de desarrollo ##
 
 cd Prueba-Julius
 npm install
 npm run dev
 
-## Installation production mode ##
+## Instalación en modo de producción ##
 
 cd Prueba-Julius
 npm start
 
 ```
-## Usage
+## Como usar la API 
 
 Link API REST : ```https://juliusprueba.herokuapp.com```
 
-##SingUp##
+##Registrar Usuario##
 
 ```
 curl -X POST https://juliusprueba.herokuapp.com/singup

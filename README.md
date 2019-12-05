@@ -34,7 +34,7 @@ npm start
 
 Link API REST : `https://juliusprueba.herokuapp.com`
 
-##Registrar Usuario##
+##Registrar usuario##
 
 ```
 curl -X POST https://juliusprueba.herokuapp.com/api/singup
@@ -54,5 +54,18 @@ curl -X POST https://juliusprueba.herokuapp.com/api/singin
     -d '{
             "email": "juanito@develop.com",
             "password":"juanitodev"
+        }
+```
+
+##Crear un post ##
+
+```
+curl -X POST https://juliusprueba.herokuapp.com/api/post
+    -H "Content-Type: multipart/form-data" \
+        -H "Authorization: token jwt " \
+    -d '{
+            "image-julius": "image -- Input tipo file",
+            "titulo":"Juanito está aprendiendo Nodejs",
+            "contenido":"Es interesante todo lo que puedo hacer con nodejs ... ",
         }
 ```

@@ -18,5 +18,6 @@ const postRouter = require('./routes/post')
 app.use('/api', authRouter)
 app.use('/api', postRouter)
 app.use('/api', jwt.validateToken)
+app.use('**', (req, res) => res.redirect('/api'))
 
 module.exports = app

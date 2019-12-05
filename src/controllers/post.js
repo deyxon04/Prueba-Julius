@@ -38,11 +38,10 @@ postController.createPost = async (req, res) => {
 
 postController.getPosts = async (req, res) => {
   try {
-    const post = await Posts.find({ autor: req.user.id })
     return res.status(200).json({
       ok: true,
       message: 'Estos son tus post',
-      error: post
+      post: await Posts.find({ autor: req.user.id })
     })
   } catch (error) {
     return res.status(500).json({
@@ -61,12 +60,11 @@ postController.deletePost = async (req, res) => {
         ok: true,
         message: 'Post eliminado correctamente'
       })
-    } else {
-      return res.status(200).json({
-        ok: true,
-        message: 'Este post no te pertenece'
-      })
     }
+    return res.status(200).json({
+      ok: true,
+      message: 'Este post no te pertenece'
+    })
   } catch (error) {
     return res.status(500).json({
       ok: false,
@@ -77,25 +75,24 @@ postController.deletePost = async (req, res) => {
 
 postController.filterPosts = async (req, res) => {
   try {
-    let posts = await Posts.paginate({ titulo: { $regex: req.params.value }, autor: req.user.id })
+    const valueTosearch = req.body.value
+    const page = req.query.page
+    const limit = req.query.limit
+    const idUser = req.user.id
+    let posts = await Posts.paginate({ titulo: { $regex: valueTosearch }, autor: idUser }, { page: page, limit: page })
     if (posts.totalDocs < 1) {
-      posts = await Posts.paginate({ contenido: { $regex: req.params.value }, autor: req.user.id })
+      posts = await Posts.paginate({ contenido: { $regex: valueTosearch }, autor: idUser }, { page: page, limit: limit })
       if (posts.totalDocs < 1) {
         return res.status(200).json({
           ok: true,
-          message: `No hay post asociados a tu busqueda ${req.params.value}`,
+          message: `No hay post asociados a tu busqueda ${req.body.value}`,
           posts: posts.docs
         })
       }
-      return res.status(200).json({
-        ok: true,
-        message: `Estos son post que arrojó la busqueda ${req.params.value}`,
-        posts: posts.docs
-      })
     }
     return res.status(200).json({
       ok: true,
-      message: `Estos son post que arrojó la busqueda ${req.params.value}`,
+      message: `Estos son post que arrojó la busqueda ${req.body.value}`,
       posts: posts.docs
     })
   } catch (error) {

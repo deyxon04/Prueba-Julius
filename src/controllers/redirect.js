@@ -2,7 +2,7 @@
 
 const redirectController = {}
 redirectController.redirect = async (req, res) => {
-    res.redirect('/api')
+  res.redirect('/api')
 }
 
 module.exports = redirectController

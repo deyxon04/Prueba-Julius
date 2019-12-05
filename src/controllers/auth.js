@@ -57,7 +57,5 @@ authController.singIn = async (req, res) => {
     })
   }
 }
-authController.deleteUser = () => { }
-authController.getUser = () => { }
 
 module.exports = authController

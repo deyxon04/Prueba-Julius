@@ -5,6 +5,6 @@ const redirectRouter = Router()
 const redirectController = require('../controllers/redirect')
 
 redirectRouter.route('**')
-    .get(redirectController.redirect)
+  .get(redirectController.redirect)
 
-module.exports = postRouter
+module.exports = redirectRouter

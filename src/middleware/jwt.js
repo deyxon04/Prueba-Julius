@@ -11,8 +11,9 @@ module.exports = {
     jwt.verify(req.headers.authorization, config.SECREET_JWT, (error, decoded) => {
       if (error) {
         return res.status(401).json({
-          error: false,
-          messge: 'Permiso denegado no has iniciado sesión'
+          ok: false,
+          error: 'Unauthorized',
+          message: 'Permiso denegado no has iniciado sesión'
         })
       }
       req.user = decoded.user

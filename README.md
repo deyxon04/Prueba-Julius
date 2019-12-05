@@ -34,7 +34,7 @@ npm start
 
 Link API REST : `https://juliusprueba.herokuapp.com`
 
-## Registrar usuarios ##
+## Registrar usuarios
 
 ```
 curl -X POST https://juliusprueba.herokuapp.com/api/singup
@@ -44,9 +44,17 @@ curl -X POST https://juliusprueba.herokuapp.com/api/singup
             "email": "juanito@develop.com",
             "password":"juanitodev"
         }
+
+    ## Ejemplo de respuesta ##
+    {
+      "ok": true,
+      "message": "Login correcto",
+      jwt: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9....'
+    }
+
 ```
 
-## Autenticar  usuario##
+## Autenticar usuario
 
 ```
 curl -X POST https://juliusprueba.herokuapp.com/api/singin
@@ -57,7 +65,7 @@ curl -X POST https://juliusprueba.herokuapp.com/api/singin
         }
 ```
 
-## Crear un post ##
+## Crear un post
 
 ```
 curl -X POST https://juliusprueba.herokuapp.com/api/post
@@ -68,9 +76,23 @@ curl -X POST https://juliusprueba.herokuapp.com/api/post
             "titulo":"Juanito está aprendiendo Nodejs",
             "contenido":"Es interesante todo lo que puedo hacer con nodejs ... ",
         }
+
 ```
-## Listar los post asociados a un usuario ##
+
+## Listar los post asociados a un usuario
+
 ```
 curl -X GET https://juliusprueba.herokuapp.com/api/post
     -H "Authorization: token jwt " \
+```
+
+## Eliminar un post
+
+```
+curl -X DEL https://juliusprueba.herokuapp.com/api/post
+    -H "Content-Type: application/json" \
+    -H "Authorization: token jwt " \
+    -d '{
+            "id": "Identificador del post"
+        }
 ```

@@ -62,6 +62,13 @@ curl -X POST https://juliusprueba.herokuapp.com/api/singin
             "email": "juanito@develop.com",
             "password":"juanitodev"
         }
+
+    ## Ejemplo de respuesta ##
+    {
+      "ok": true,
+      "message": "Login correcto",
+      "jwt": "Token JWT"
+    }
 ```
 
 ## Crear un post
@@ -76,6 +83,12 @@ curl -X POST https://juliusprueba.herokuapp.com/api/post
             "contenido":"Es interesante todo lo que puedo hacer con nodejs ... ",
         }
 
+    ## Ejemplo de respuesta ##
+    {
+        "ok": true,
+        "message": "Post creado correctamente"
+    }
+
 ```
 
 ## Listar los post asociados a un usuario
@@ -83,6 +96,15 @@ curl -X POST https://juliusprueba.herokuapp.com/api/post
 ```
 curl -X GET https://juliusprueba.herokuapp.com/api/post
     -H "Authorization: token jwt " \
+
+    ## Ejemplo de respuesta ##
+    { 
+        "ok": true,
+        "message": "Estos son tus post",
+        "post": "Array de posts"
+    }
+
+
 ```
 
 ## Eliminar un post
@@ -94,4 +116,10 @@ curl -X DEL https://juliusprueba.herokuapp.com/api/post
     -d '{
             "id": "Identificador del post"
         }
+    
+    ## Ejemplo de respuesta ##
+    {
+        "ok": true,
+        "message": "Post eliminado correctamente"   
+    }
 ```

@@ -142,3 +142,8 @@ curl -X DEL https://juliusprueba.herokuapp.com/api/postfilter/?page=1&limit=10
     }
 ```
 
+
+
+## License
+MIT
+
